@@ -8,7 +8,7 @@ class TaskController extends Controller
 {
     public function index()
     {
-       return Task::all();
+        return Task::all();
     }
 
     public function store(Request $request)
@@ -16,10 +16,15 @@ class TaskController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',  // Validate that the 'name' is required, a string, and not too long
         ]);
-    
+
         // If validation passes, proceed to create the task
         $task = Task::create($validated);
         return response()->json($task, 201);  // Return the created task in JSON format
     }
 
+    public function destroy(Task $task)
+    {
+        $task->delete();
+        return response()->json(null, 204);
+    }
 }

@@ -1,127 +1,95 @@
-# Laravel API + Vue SPA (Task Manager)
+# Focus Tasks - Laravel & Vue SPA
 
-This is a simple **Task Manager** application built using **Laravel as the backend API** and **Vue.js as the frontend SPA**. The app allows users to **add tasks** and **list tasks** using a REST API.
+Focus Tasks is a modern, minimalist Task Management application built with a **Laravel API** backend and a **Vue.js 3** frontend. It features a clean "Nordic Light" aesthetic with emerald accents and smooth animations.
 
-## Features
-- Create new tasks
-- List all tasks
-- Vue.js as the frontend (SPA)
-- Laravel API as the backend
-- Uses Axios for API communication
+## ✨ Features
+- **Modern UI**: Clean, minimalist design with a soft-light theme.
+- **Task Management**: Create, view, and remove tasks with ease.
+- **Fluid Animations**: Smooth transitions for adding and deleting tasks.
+- **RESTful API**: Robust backend communication using Axios and Laravel.
+- **Responsive Design**: Optimized for various screen sizes.
 
-## Tech Stack
-- **Backend:** Laravel 10
-- **Frontend:** Vue.js 3 + Vite
-- **Database:** SQLite / MySQL
-- **Authentication:** Laravel Sanctum (optional)
+## 🚀 Tech Stack
+- **Backend**: Laravel 10 (PHP 8.x)
+- **Frontend**: Vue.js 3 + Vue CLI
+- **API**: Laravel Routes + Axios
+- **Styling**: Vanilla CSS (Modern CSS Variables)
+- **Database**: SQLite (Default) or MySQL
 
 ---
 
-## Installation
-### 1. Clone the Repository
-```sh
-git clone https://github.com/yourusername/laravel-vue-taskmanager.git
-cd laravel-vue-taskmanager
-```
+## 🛠️ Installation & Setup
 
-### 2. Set Up Laravel Backend
-#### Install Dependencies
-```sh
-cd backend
+### 1. Prerequisite
+Ensure you have **PHP**, **Composer**, and **Node.js (NPM)** installed on your machine.
+
+### 2. Backend Setup (Laravel)
+The backend files are located in the root directory.
+
+```bash
+# Install PHP dependencies
 composer install
-```
 
-#### Set Up Environment
-```sh
+# Set up environment variables
 cp .env.example .env
 php artisan key:generate
-```
 
-#### Configure Database
-Update `.env` file with database details:
-```env
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=taskmanager
-DB_USERNAME=root
-DB_PASSWORD=
-```
-
-#### Run Migrations
-```sh
+# Run database migrations
 php artisan migrate
-```
 
-#### Run Laravel Server
-```sh
+# Start the Laravel development server
 php artisan serve
 ```
 
-### 3. Set Up Vue Frontend
-#### Install Dependencies
-```sh
-cd frontend
-npm install
-```
+### 3. Frontend Setup (Vue SPA)
+The frontend files are located in the `frontend/` directory.
 
-#### Run Development Server
-```sh
-npm run dev
+```bash
+# Navigate to the frontend directory
+cd frontend
+
+# Install Node dependencies
+npm install
+
+# Start the Vue development server
+npm run serve
 ```
 
 ---
 
-## API Endpoints
+## 📡 API Reference
+
+### Tasks
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET    | `/api/tasks` | Fetch all tasks |
-| POST   | `/api/tasks` | Create a new task |
+| `GET`    | `/api/tasks` | Retrieve all tasks |
+| `POST`   | `/api/tasks` | Create a new task |
+| `DELETE` | `/api/tasks/{id}` | Remove a task |
 
-### Example API Request (Create Task)
-```sh
-curl -X POST http://127.0.0.1:8000/api/tasks \
-     -H "Content-Type: application/json" \
-     -d '{"title": "New Task"}'
+---
+
+## 📂 Project Structure
+```text
+.
+├── app/                # Laravel Core
+├── config/             # Laravel Configuration
+├── database/           # Migrations & Models
+├── frontend/           # Vue.js SPA
+│   ├── src/            # Vue Source Code
+│   │   ├── App.vue     # Main Application Component
+│   │   └── main.js     # Vue Entry Point
+│   └── public/         # Static Assets & index.html
+├── public/             # Laravel Public Assets
+├── routes/             # API & Web Routes
+├── storage/            # Laravel Storage
+└── README.md           # This Documentation
 ```
 
 ---
 
-## Folder Structure
-```
-laravel-vue-taskmanager/
-├── backend/        # Laravel API
-│   ├── app/
-│   ├── database/
-│   ├── routes/api.php
-│   ├── .env
-│   ├── artisan
-├── frontend/       # Vue.js SPA
-│   ├── src/
-│   ├── components/
-│   ├── App.vue
-│   ├── main.js
-│   ├── vite.config.js
-└── README.md
-```
+## 📖 Developer Guide
+For a deep dive into the architecture, state management, and contributing guidelines, please refer to the [DEVELOPER_GUIDE.md](./DEVELOPER_GUIDE.md).
 
----
-
-## Deployment
-### Backend (Laravel API)
-1. Deploy Laravel API to a cloud server (e.g., DigitalOcean, AWS, or Heroku)
-2. Configure `.env` file for production
-3. Run migrations: `php artisan migrate --force`
-
-### Frontend (Vue.js SPA)
-1. Build Vue app:
-```sh
-npm run build
-```
-2. Deploy `dist/` folder to Netlify, Vercel, or any static hosting.
-
----
-
-## License
+## 📄 License
 This project is open-source and available under the [MIT License](LICENSE).
 
